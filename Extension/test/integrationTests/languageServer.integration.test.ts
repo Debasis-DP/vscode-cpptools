@@ -122,7 +122,7 @@ suite("extensibility tests v1", function(): void {
             let result: api.SourceFileConfigurationItem[] = [];
             uris.forEach(uri => {
                 result.push({
-                    uri: uri.toString(),
+                    uri: uri,
                     configuration: defaultConfig
                 });
             });
@@ -160,7 +160,7 @@ suite("extensibility tests v1", function(): void {
         let testResult: any = new Promise<void>((resolve, reject) => {
             disposables.push(testHook.StatusChanged(status => {
                 if (status === apit.Status.IntelliSenseReady) {
-                    let expected: api.SourceFileConfigurationItem[] = [ {uri: uri.toString(), configuration: defaultConfig} ];
+                    let expected: api.SourceFileConfigurationItem[] = [ {uri: uri, configuration: defaultConfig} ];
                     assert.deepEqual(lastResult, expected);
                     resolve();
                 }
@@ -194,7 +194,7 @@ suite("extensibility tests v0", function(): void {
             let result: api.SourceFileConfigurationItem[] = [];
             uris.forEach(uri => {
                 result.push({
-                    uri: uri.toString(),
+                    uri: uri,
                     configuration: defaultConfig
                 });
             });
@@ -230,7 +230,7 @@ suite("extensibility tests v0", function(): void {
         let testResult: any = new Promise<void>((resolve, reject) => {
             disposables.push(testHook.StatusChanged(status => {
                 if (status === apit.Status.IntelliSenseReady) {
-                    let expected: api.SourceFileConfigurationItem[] = [ {uri: uri.toString(), configuration: defaultConfig} ];
+                    let expected: api.SourceFileConfigurationItem[] = [ {uri: uri, configuration: defaultConfig} ];
                     assert.deepEqual(lastResult, expected);
                     resolve();
                 }
